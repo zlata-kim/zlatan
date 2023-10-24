@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MY WEBSITE</title>
+    <h1>KIPMUTAI WEBSITE EDITION</h1>
+    <div class="container">
+      <h2>About me</h2>
+      <p>
+        I am a student at kisii universty study a course Information Tecknology
+        majorly focus on Disighing and developer
+      </p>
+      <h2>Contact Information</h2>
+      <div class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: kipmutairamziih@gmail.com</p>
+        <p>Phone: +254-741232805</p>
+        <p>Facebook page:Aron Ramziih</p>
+        <p>Address: 036,BOMET</p>
+      </div>
+    </div>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Upload Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .container {
+        margin: 20px auto;
+        max-width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      #image-container {
+        text-align: center;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      input[type="file"] {
+        display: none;
+      }
+      label {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+      label:hover {
+        background-color: #45a049;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #ffe100;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button.delete {
+        background-color: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Image Upload</h1>
+      <div id="image-container">
+        <img id="uploaded-image" src="" alt="Uploaded Image" />
+      </div>
+      <input type="file" id="file-input" accept="image/*" />
+      <label for="file-input">Choose Image</label>
+      <button id="save-button">Save Image</button>
+      <button id="delete-button" class="delete">Delete Image</button>
+    </div>
+    <script>
+      const fileInput = document.getElementById("file-input");
+      const uploadedImage = document.getElementById("uploaded-image");
+      const saveButton = document.getElementById("save-button");
+      const deleteButton = document.getElementById("delete-button");
+
+      fileInput.addEventListener("change", function () {
+        const file = fileInput.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            uploadedImage.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          uploadedImage.src = "";
+        }
+      });
+
+      saveButton.addEventListener("click", function () {
+        // You can add your save image logic here.
+        alert("Image saved!");
+      });
+
+      deleteButton.addEventListener("click", function () {
+        uploadedImage.src = "";
+        fileInput.value = "";
+        // You can add your delete image logic here.
+      });
+    </script>
+    <div class="location base">
+      <h1>Location</h1>
+      <p>BOMET</p>
+      <P2>KISII,UNIVERSTY</P2>
+    </div>
+    <footer>
+      <p>copy;2023 KIPMUTAI WEBSITE EDITION</p>
+      <p2>You can fine me via the email kipmutairamziih@gmail.com.</p2>
+      <p3>Contact +254-741232805</p3>
+    </footer>
+  </body>
+</html>
